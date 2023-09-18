@@ -1,0 +1,19 @@
+[
+{
+"name":"Hannia",
+"lastname":"Camacho",
+"email":"hcamacho@gmail.com",
+"password":"Camacho1",
+"role_id":1,
+"avatar":""
+},
+{
+    "name":"Pepe",
+    "lastname":"Pepito",
+    "email":"p_pepito@gmail.com",
+    "password":"123",
+    "role_id":1,
+    "avatar":""
+    }
+
+]
