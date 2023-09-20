@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title> Formulario de Acceso </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="container_app">
+        <div id="central">
+            <div id="login">
+                <div class="titulo">
+                    Bienvenido
+                </div>
+                <form id="loginform" v-if="!is_login">
+                    <input  type="email" name="user" placeholder="Email" >
+
+                    <input v-model="password" type="password" placeholder="Contraseña" name="">
+
+                    <button @click="login" type="button">Login</button>
+                </form>
+            </div>
+
+            <table class="customTable" v-if="is_login">
+                <thead>
+                    <tr>
+                        <th>
+                            Personal data
+
+                        </th>
+                        <th>
+                            Contact data
+                        </th>
+                        <th>
+                            Company data
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="u in users">
+                        <td>{{u.name}}, {{u.username}}</td>
+                        <td>{{u.email}}, {{u.phone}}</td>
+                        <td>{{u.company.name}}, {{u.company.bs}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <script src="https://unpkg.com/vue@3.0.11"></script>
+        <script type="text/javascript">
+            const { createApp, ref } = Vue;
+
+            createApp({
+                setup() {
+                    const users = ref([]);
+                    const email = ref('hcamacho@gmail.com');
+                    const password = ref('1234');
+                    const is_login = ref(false);
+                    let tmp = localStorage.getItem("is_login");
+                    if (tmp == null) {
+                        tmp = false
+                    }
+                    is_login.value = tmp;
+
+                    return {
+                        users,
+                        email,
+                        password,
+                        is_login
+                    }
+                },
+                mounted: function () {
+                    const getUsers = async () => {
+                        const response = await fetch("users.json?v=1");
+                        const tmp_users = await response.json();
+                        console.log(tmp_users)
+                        this.users = tmp_users;
+                    }
+                    if (this.is_login) {
+                        getUsers();
+                    }
+                },
+                methods: {
+                    async login() {
+                        const response = await fetch("users.json?v=1.1");
+                        this.users = await response.json();
+
+                        this.is_login = false;
+
+                        this.users.forEach((user) => {
+                            if (this.email == user.email) {
+                                if (this.password == user.password) {
+                                    this.is_login = true;
+                                    
+                                    localStorage.setItem("user_data", JSON.stringify(user));
+                                    localStorage.setItem("is_login", "true");
+                                    alert("Bienvenido")
+                                }
+                            }
+                        });
+
+                        if (!this.is_login) {
+                            alert("Verifique su informacion")
+                        }
+                    }
+
+                }
+            }).mount('#container_app');
+        </script>
+</body>
+
+</html>

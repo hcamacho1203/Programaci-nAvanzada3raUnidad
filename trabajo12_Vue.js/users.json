@@ -1,0 +1,249 @@
+[
+    {
+        "index": 0,
+        "name": "Hannia Camacho",
+        "username": "hcamacho",
+        "email": "hcamacho@gmail.com",
+        "password": "1234",
+        "phone": "6151049123",
+        "company": {
+            "name": "Romaguera-Crona",
+            "catchPhrase": "Multi-layered client-server neural-net",
+            "bs": "harness real-time e-markets"
+        }
+    },
+    {
+        "index": 1,
+        "name": "Pepe",
+        "username": "elpepe",
+        "email": "pepe",
+        "password": "123",
+        "phone": "66(890)232-49-34",
+        "company": {
+            "name": "Deckow-Crist",
+            "catchPhrase": "Proactive didactic contingency",
+            "bs": "synergize scalable supply-chains"
+        }
+    },
+    {
+        "index": 2,
+        "name": "Regina Gilliam",
+        "username": "Regina_Gilliam1",
+        "email": "reginagilliam@ginkle.com",
+        "password": "InGENsUcLeS",
+        "phone": "23(2960)749-20-14",
+        "company": {
+            "name": "Romaguera-Jacobson",
+            "catchPhrase": "Face to face bifurcated interface",
+            "bs": "e-enable strategic applications"
+        }
+    },
+    {
+        "index": 3,
+        "name": "Brandie Adkins",
+        "username": "AdkinsAdkins2",
+        "email": "brandieadkins@ginkle.com",
+        "password": "aTeTaKenTEL",
+        "phone": "12(34)220-16-10",
+        "company": {
+            "name": "Robel-Corkery",
+            "catchPhrase": "Multi-tiered zero tolerance productivity",
+            "bs": "transition cutting-edge web services"
+        }
+    },
+    {
+        "index": 4,
+        "name": "Mcpherson Nixon",
+        "username": "Mcpherson125",
+        "email": "mcphersonnixon@ginkle.com",
+        "password": "pesteNageyW",
+        "phone": "4(5889)305-61-12",
+        "company": {
+            "name": "Keebler LLC",
+            "catchPhrase": "User-centric fault-tolerant solution",
+            "bs": "revolutionize end-to-end systems"
+        }
+    },
+    {
+        "index": 5,
+        "name": "Rivers Beach",
+        "username": "FraaaakieeeRiiiivers",
+        "email": "riversbeach@ginkle.com",
+        "password": "rActorYMONA",
+        "phone": "309(1209)784-08-60",
+        "company": {
+            "name": "Keebler LLC",
+            "catchPhrase": "User-centric fault-tolerant solution",
+            "bs": "revolutionize end-to-end systems"
+        }
+    },
+    {
+        "index": 6,
+        "name": "Jacobson Ramirez",
+        "username": "Fire Machine",
+        "email": "jacobsonramirez@ginkle.com",
+        "password": "bUnTReNSonO",
+        "phone": "479(48)350-32-06",
+        "company": {
+            "name": "Considine-Lockman",
+            "catchPhrase": "Synchronised bottom-line interface",
+            "bs": "e-enable innovative applications"
+        }
+    },
+    {
+        "index": 7,
+        "name": "Mitzi Hopper",
+        "username": "Mitziopp",
+        "email": "mitzihopper@ginkle.com",
+        "password": "nsionGErvEs",
+        "phone": "4(23)479-72-92",
+        "company": {
+            "name": "Johns Group",
+            "catchPhrase": "Configurable multimedia task-force",
+            "bs": "generate enterprise e-tailers"
+        }
+    },
+    {
+        "index": 8,
+        "name": "Lindsay Mcdowell",
+        "username": "McdowellLindsay",
+        "email": "lindsaymcdowell@ginkle.com",
+        "password": "EAlMotChaUD",
+        "phone": "8(9186)079-34-23",
+        "company": {
+            "name": "Abernathy Group",
+            "catchPhrase": "Implemented secondary concept",
+            "bs": "e-enable extensible e-tailers"
+        }
+    },
+    {
+        "index": 9,
+        "name": "Davenport Serrano",
+        "username": "D_Serrano",
+        "email": "davenportserrano@ginkle.com",
+        "password": "OMNArDicKLe",
+        "phone": "7(9723)250-56-44",
+        "company": {
+            "name": "Johns Group",
+            "catchPhrase": "Configurable multimedia task-force",
+            "bs": "generate enterprise e-tailers"
+        }
+    },
+    {
+        "index": 10,
+        "name": "Kristina Warner",
+        "username": "Warner14",
+        "email": "kristinawarner@ginkle.com",
+        "password": "aTrimproSIa",
+        "phone": "332(3275)022-72-08",
+        "company": {
+            "name": "Yost and Sons",
+            "catchPhrase": "Switchable contextually-based project",
+            "bs": "aggregate real-time technologies"
+        }
+    },
+    {
+        "index": 11,
+        "name": "Nikki Lott",
+        "username": "LottieNN",
+        "email": "nikkilott@ginkle.com",
+        "password": "EraNDinArbi",
+        "phone": "719(0703)292-03-04",
+        "company": {
+            "name": "Hoeger LLC",
+            "catchPhrase": "Centralized empowering task-force",
+            "bs": "target end-to-end models"
+        }
+    },
+    {
+        "index": 12,
+        "name": "Tracy Leblanc",
+        "username": "TracyLeblanc159",
+        "email": "tracyleblanc@ginkle.com",
+        "password": "IonfEltSeye",
+        "phone": "9(59)829-37-06",
+        "company": {
+            "name": "Hoeger LLC",
+            "catchPhrase": "Centralized empowering task-force",
+            "bs": "target end-to-end models"
+        }
+    },
+    {
+        "index": 13,
+        "name": "Janis Sears",
+        "username": "Sears287",
+        "email": "janissears@ginkle.com",
+        "password": "ONetSecouST",
+        "phone": "99(8226)687-38-36",
+        "company": {
+            "name": "Hoeger LLC",
+            "catchPhrase": "Centralized empowering task-force",
+            "bs": "target end-to-end models"
+        }
+    },
+    {
+        "index": 14,
+        "name": "Dillon Moss",
+        "username": "MossDillon",
+        "email": "dillonmoss@ginkle.com",
+        "password": "tEraNGTorKl",
+        "phone": "62(72)944-13-26",
+        "company": {
+            "name": "Abernathy Group",
+            "catchPhrase": "Implemented secondary concept",
+            "bs": "e-enable extensible e-tailers"
+        }
+    },
+    {
+        "index": 15,
+        "name": "Mooney Miranda",
+        "username": "Mooney_Miranda",
+        "email": "mooneymiranda@ginkle.com",
+        "password": "LUsEYeMoshO",
+        "phone": "83(89)146-96-24",
+        "company": {
+            "name": "Considine-Lockman",
+            "catchPhrase": "Synchronised bottom-line interface",
+            "bs": "e-enable innovative applications"
+        }
+    },
+    {
+        "index": 16,
+        "name": "Owens Eaton",
+        "username": "OEaton",
+        "email": "owenseaton@ginkle.com",
+        "password": "HILRomAltrU",
+        "phone": "400(12)287-50-62",
+        "company": {
+            "name": "Robel-Corkery",
+            "catchPhrase": "Multi-tiered zero tolerance productivity",
+            "bs": "transition cutting-edge web services"
+        }
+    },
+    {
+        "index": 17,
+        "name": "Luann Duke",
+        "username": "Luann1",
+        "email": "luannduke@ginkle.com",
+        "password": "linsmUsALEw",
+        "phone": "410(9613)281-64-94",
+        "company": {
+            "name": "Deckow-Crist",
+            "catchPhrase": "Proactive didactic contingency",
+            "bs": "synergize scalable supply-chains"
+        }
+    },
+    {
+        "index": 18,
+        "name": "Charlotte Green",
+        "username": "Chargreen",
+        "email": "charlottegreen@ginkle.com",
+        "password": "AULtzScORwo",
+        "phone": "734(281)806-63-28",
+        "company": {
+            "name": "Romaguera-Crona",
+            "catchPhrase": "Multi-layered client-server neural-net",
+            "bs": "harness real-time e-markets"
+        }
+    }
+]
