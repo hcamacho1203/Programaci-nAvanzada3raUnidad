@@ -3,7 +3,7 @@ body {
     font-weight: normal;
     font-size: 100%;
     color: #1b262c;
-    
+
     margin: 0;
     background-color: #0f4c75;
 }
@@ -33,7 +33,7 @@ body {
     width: 100%;
     padding: 50px 30px;
     background-color: #3282b8;
-    
+
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 3px;
     box-sizing: border-box;
@@ -107,4 +107,37 @@ body {
 
 .inferior a:hover {
     color: #3282b8;
+}
+
+table.customTable {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-color: #3282B8;
+    border-style: double;
+    color: #000000;
+}
+
+table.customTable td,
+table.customTable th {
+    border-width: 4px;
+    border-color: #3282B8;
+    border-style: double;
+    padding: 4px;
+}
+
+table.customTable thead {
+    background-color: #3282B8;
+}
+.table-container {
+    margin-top: 20px;
+    max-width: 1000px; 
+    width: 100%;
+    margin: 10px auto; 
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    box-sizing: border-box;
 }
