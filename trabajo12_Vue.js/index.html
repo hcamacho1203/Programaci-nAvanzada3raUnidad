@@ -3,125 +3,195 @@
 
 <head>
     <meta charset="utf-8">
-
-    <title> Formulario de Acceso </title>
-
+    <title>Formulario de Acceso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css">
-
-
     <style type="text/css">
-
+        /* Aquí puedes agregar tus estilos CSS si es necesario */
     </style>
 </head>
 
 <body>
-    <div id="container_app">
+    <div class="container" id="container_app">
         <div id="central">
-            <div id="login">
-                <div class="titulo">
-                    Bienvenido
-                </div>
-                <form id="loginform" v-if="!is_login">
-                    <input  type="email" name="user" placeholder="Email" >
-
-                    <input v-model="password" type="password" placeholder="Contraseña" name="">
-
-                    <button @click="login" type="button">Login</button>
-                </form>
-            </div>
-
+            <form id="login">
+                <fieldset>
+                    <legend>Email:</legend>
+                    <input v-model="email" type="email" placeholder="Escribe aquí" name="email">
+                </fieldset>
+                <fieldset>
+                    <legend>Password:</legend>
+                    <input v-model="password" type="password" placeholder="Escribe aquí" name="password">
+                </fieldset>
+                <button @click="login" type="button">Acceso</button>
+            </form>
+        </div>
+        <div class="table-container">
             <table class="customTable" v-if="is_login">
                 <thead>
                     <tr>
-                        <th>
-                            Personal data
-
-                        </th>
-                        <th>
-                            Contact data
-                        </th>
-                        <th>
-                            Company data
-                        </th>
+                        <th>Información personal</th>
+                        <th>Información de contacto</th>
+                        <th>Información de la empresa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="u in users">
-                        <td>{{u.name}}, {{u.username}}</td>
-                        <td>{{u.email}}, {{u.phone}}</td>
-                        <td>{{u.company.name}}, {{u.company.bs}}</td>
+                    <tr v-for="(u, index) in users" class="table-row">
+                        <td>{{ u.name }}, {{ u.username }}</td>
+                        <td>{{ u.email }}, {{ u.phone }}</td>
+                        <td>{{ u.company.name }}, {{ u.company.bs }}</td>
+                        <td>
+                            <button @click="edit(u)">
+                                Editar
+                            </button>
+                            <button @click="remove(index)">
+                                Eliminar
+                            </button>
+                        </td>
                     </tr>
-
                 </tbody>
             </table>
+            <button @click="action='add'">
+                Agregar nuevo registro
+            </button>
+            <div class="rendered-form" v-if="action === 'add'">
+                <div>
+                    <h1>Agregar nuevo usuario a la lista</h1>
+                </div>
+                <div>
+                    <label for="new_user_name">Nombre completo</label>
+                    <input v-model="new_user.name" type="text" id="new_user_name">
+                </div>
+                <div>
+                    <label for="new_user_email">Email</label>
+                    <input v-model="new_user.email" type="text" id="new_user_email">
+                </div>
+                <div>
+                    <label for="new_user_company_name">Nombre de la empresa</label>
+                    <input v-model="new_user.company_name" type="text" id="new_user_company_name">
+                </div>
+                <div>
+                    <button type="button" @click="save('create')">Guardar datos del usuario</button>
+                </div>
+            </div>
+            <div class="rendered-form" v-if="action === 'edit'">
+                <div>
+                    <h1>Editar usuario</h1>
+                </div>
+                <div>
+                    <label for="edit_user_name">Nombre completo</label>
+                    <input v-model="new_user.name" type="text" id="edit_user_name">
+                </div>
+                <div>
+                    <label for="edit_user_email">Email</label>
+                    <input v-model="new_user.email" type="text" id="edit_user_email">
+                </div>
+                <div>
+                    <label for="edit_user_company_name">Nombre de la empresa</label>
+                    <input v-model="new_user.company_name" type="text" id="edit_user_company_name">
+                </div>
+                <input type="hidden" v-model="new_user.index">
+                <div>
+                    <button type="button" @click="save('edit')">Guardar cambios</button>
+                </div>
+            </div>
         </div>
+    </div>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript">
+        const { createApp, ref } = Vue;
 
-        <script src="https://unpkg.com/vue@3.0.11"></script>
-        <script type="text/javascript">
-            const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const users = ref([]);
+                const email = ref('hcamacho@gmail.com');
+                const password = ref('1234');
+                let tmp = localStorage.getItem("is_login");
+                if (tmp == null) {
+                    tmp = false;
+                }
+                const is_login = ref(tmp);
+                const new_user = ref({});
+                const action = ref('');
 
-            createApp({
-                setup() {
-                    const users = ref([]);
-                    const email = ref('hcamacho@gmail.com');
-                    const password = ref('1234');
-                    const is_login = ref(false);
-                    let tmp = localStorage.getItem("is_login");
-                    if (tmp == null) {
-                        tmp = false
-                    }
-                    is_login.value = tmp;
+                return {
+                    users,
+                    email,
+                    password,
+                    is_login,
+                    new_user,
+                    action
+                }
+            },
+            mounted: function () {
+                const getUsers = async () => {
+                    const response = await fetch("users.json?v=1");
+                    const tmp_users = await response.json();
 
-                    return {
-                        users,
-                        email,
-                        password,
-                        is_login
-                    }
-                },
-                mounted: function () {
-                    const getUsers = async () => {
-                        const response = await fetch("users.json?v=1");
-                        const tmp_users = await response.json();
-                        console.log(tmp_users)
-                        this.users = tmp_users;
-                    }
-                    if (this.is_login) {
-                        getUsers();
-                    }
-                },
-                methods: {
-                    async login() {
-                        const response = await fetch("users.json?v=1.1");
-                        this.users = await response.json();
+                    this.users = tmp_users;
+                }
+                if (this.is_login) {
+                    getUsers();
+                }
+            },
+            methods: {
+                async login() {
+                    const response = await fetch("users.json?v=1.1");
+                    this.users = await response.json();
 
-                        this.is_login = false;
+                    this.is_login = false;
 
-                        this.users.forEach((user) => {
-                            if (this.email == user.email) {
-                                if (this.password == user.password) {
-                                    this.is_login = true;
-                                    
-                                    localStorage.setItem("user_data", JSON.stringify(user));
-                                    localStorage.setItem("is_login", "true");
-                                    alert("Bienvenido")
-                                }
+                    this.users.forEach((user) => {
+                        if (this.email == user.email) {
+                            if (this.password == user.password) {
+                                this.is_login = true;
+                                alert("Bienvenido")
+
+                                localStorage.setItem("user_data", JSON.stringify(user));
+                                localStorage.setItem("is_login", "true");
+
                             }
-                        });
+                        }
+                    });
 
-                        if (!this.is_login) {
-                            alert("Verifique su informacion")
+                    if (!this.is_login) {
+                        alert("Verifique su información")
+                    }
+                },
+                edit(target) {
+                    this.action = 'edit';
+                    this.new_user.name = target.name;
+                    this.new_user.email = target.email;
+                    this.new_user.company_name = target.company.name; // Cambiado de target.company.company_name
+                    this.new_user.index = target.index;
+                },
+                save(action) {
+                    if (action === 'create') {
+                        this.new_user.index = Date.now() / 1000; // Cambiado de microtime
+                        this.users.push({ ...this.new_user });
+                        this.new_user = {};
+                        alert("Registro añadido correctamente");
+                    }
+                    if (action === 'edit') {
+                        const userIndex = this.users.findIndex((user) => user.index === this.new_user.index);
+                        if (userIndex !== -1) {
+                            this.users[userIndex].name = this.new_user.name;
+                            this.users[userIndex].email = this.new_user.email;
+                            this.users[userIndex].company.name = this.new_user.company_name;
                         }
                     }
-
+                    this.action = '';
+                },
+                remove(index) {
+                    const userIndex = this.users.findIndex((user) => user.index === index);
+                    if (userIndex !== -1) {
+                        this.users.splice(userIndex, 1);
+                    }
                 }
-            }).mount('#container_app');
-        </script>
+            }
+        }).mount('#container_app')
+    </script>
 </body>
 
 </html>
